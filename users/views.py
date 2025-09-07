@@ -4,6 +4,7 @@ from .serializers import UserSerializer
 
 User = get_user_model()
 
+
 class UserCreateAPIView(generics.CreateAPIView):
     """ View для регистрации нового пользователя """
     serializer_class = UserSerializer

@@ -4,6 +4,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 NULLABLE = {'blank': True, 'null': True}
 
+
 class Habit(models.Model):
     PERIOD_CHOICES = [
         ('daily', 'Ежедневно'),
@@ -20,7 +21,6 @@ class Habit(models.Model):
     reward = models.CharField(max_length=255, **NULLABLE, verbose_name='вознаграждение')
     duration = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(120)], verbose_name='время на выполнение (секунды)')
     is_public = models.BooleanField(default=False, verbose_name='признак публичности')
-
 
     def __str__(self):
         return f"Я буду {self.action} в {self.time} в {self.place}"

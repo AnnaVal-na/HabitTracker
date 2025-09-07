@@ -16,16 +16,58 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Habit',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('place', models.CharField(max_length=255, verbose_name='место')),
-                ('time', models.TimeField(verbose_name='время')),
-                ('action', models.CharField(max_length=255, verbose_name='действие')),
-                ('is_pleasant', models.BooleanField(default=False, verbose_name='признак приятной привычки')),
-                ('frequency', models.CharField(choices=[('daily', 'Ежедневно'), ('weekly', 'Еженедельно')], default='daily', max_length=10, verbose_name='периодичность')),
-                ('reward', models.CharField(blank=True, max_length=255, null=True, verbose_name='вознаграждение')),
-                ('duration', models.PositiveIntegerField(validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(120)], verbose_name='время на выполнение (секунды)')),
-                ('is_public', models.BooleanField(default=False, verbose_name='признак публичности')),
-                ('related_habit', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='habits.habit', verbose_name='связанная привычка')),
+                ('id', models.BigAutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID',
+                )),
+                ('place', models.CharField(
+                    max_length=255,
+                    verbose_name='место',
+                )),
+                ('time', models.TimeField(
+                    verbose_name='время',
+                )),
+                ('action', models.CharField(
+                    max_length=255,
+                    verbose_name='действие',
+                )),
+                ('is_pleasant', models.BooleanField(
+                    default=False,
+                    verbose_name='признак приятной привычки',
+                )),
+                ('frequency', models.CharField(
+                    choices=[('daily', 'Ежедневно'),
+                             ('weekly', 'Еженедельно')],
+                    default='daily',
+                    max_length=10,
+                    verbose_name='периодичность',
+                )),
+                ('reward', models.CharField(
+                    blank=True,
+                    max_length=255,
+                    null=True,
+                    verbose_name='вознаграждение',
+                )),
+                ('duration', models.PositiveIntegerField(
+                    validators=[
+                        django.core.validators.MinValueValidator(1),
+                        django.core.validators.MaxValueValidator(120)
+                    ],
+                    verbose_name='время на выполнение (секунды)',
+                )),
+                ('is_public', models.BooleanField(
+                    default=False,
+                    verbose_name='признак публичности',
+                )),
+                ('related_habit', models.ForeignKey(
+                    blank=True,
+                    null=True,
+                    on_delete=django.db.models.deletion.SET_NULL,
+                    to='habits.habit',
+                    verbose_name='связанная привычка',
+                )),
             ],
             options={
                 'verbose_name': 'привычка',

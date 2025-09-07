@@ -30,4 +30,3 @@ def send_telegram_message(chat_id, message):
     except requests.exceptions.RequestException as e:
         print(f"Ошибка отправки сообщения в Telegram: {e}")
         return False
-    

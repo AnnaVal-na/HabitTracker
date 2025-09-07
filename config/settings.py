@@ -146,4 +146,3 @@ AUTH_USER_MODEL = 'users.User'
 
 # Telegram Bot settings
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
-
