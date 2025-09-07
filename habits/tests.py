@@ -43,3 +43,28 @@ class HabitAPITest(APITestCase):
         }
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+
+class HabitAPITest(APITestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            email='test@example.com',
+            password='testpass123'
+        )
+        self.client.force_authenticate(user=self.user)
+
+    def test_public_habits_list(self):
+        url = reverse('public-habits')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_create_habit(self):
+        url = reverse('habit-list')
+        data = {
+            'place': 'Дом',
+            'time': '12:00:00',
+            'action': 'Читать книгу',
+            'duration': 120
+        }
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
