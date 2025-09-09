@@ -13,7 +13,5 @@ urlpatterns = [
     
     # Эндпоинт для регистрации
     path('api/users/register/', UserCreateAPIView.as_view(), name='user_register'),
-    
-    # Сюда позже подключу урлы от приложения habits
-    # path('api/', include('habits.urls')),
+    path('api/', include('habits.urls')),
 ]
