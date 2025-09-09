@@ -29,7 +29,6 @@ class UserSerializer(serializers.ModelSerializer):
             'password': {'write_only': True},
         }
 
-
     def create(self, validated_data):
         """ Переопределяем метод create для хеширования пароля """
         user = User.objects.create_user(
@@ -39,4 +38,3 @@ class UserSerializer(serializers.ModelSerializer):
             last_name=validated_data.get('last_name', '')
         )
         return user
-

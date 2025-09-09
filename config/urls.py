@@ -6,11 +6,9 @@ from users.serializers import MyTokenObtainPairSerializer  # Импортиру�
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
     # Эндпоинты для JWT-аутентификации
     path('api/token/', TokenObtainPairView.as_view(serializer_class=MyTokenObtainPairSerializer), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    
     # Эндпоинт для регистрации
     path('api/users/register/', UserCreateAPIView.as_view(), name='user_register'),
     path('api/', include('habits.urls')),
