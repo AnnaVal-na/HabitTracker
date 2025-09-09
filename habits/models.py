@@ -28,3 +28,16 @@ class Habit(models.Model):
     class Meta:
         verbose_name = 'привычка'
         verbose_name_plural = 'привычки'
+
+
+class TelegramChat(models.Model):
+    """ Модель для хранения chat_id пользователей Telegram """
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='пользователь')
+    chat_id = models.CharField(max_length=20, verbose_name='chat ID в Telegram')
+
+    def __str__(self):
+        return f"{self.user.email}: {self.chat_id}"
+
+    class Meta:
+        verbose_name = 'Telegram чат'
+        verbose_name_plural = 'Telegram чаты'
