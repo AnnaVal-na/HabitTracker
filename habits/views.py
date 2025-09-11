@@ -1,3 +1,4 @@
+from rest_framework.pagination import PageNumberPagination
 from rest_framework import generics, viewsets, permissions
 from .models import Habit
 from .serializers import HabitSerializer
