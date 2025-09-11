@@ -8,6 +8,7 @@ class HabitViewSet(viewsets.ModelViewSet):
     """ ViewSet для привычек """
     serializer_class = HabitSerializer
     permission_classes = [permissions.IsAuthenticated, IsOwner]
+    pagination_class = PageNumberPagination
 
     def get_queryset(self):
         return Habit.objects.filter(user=self.request.user)
